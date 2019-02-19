@@ -1,7 +1,17 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
-import { Card, CardImg, CardBody, Row, Col } from "reactstrap";
+import {
+  Card,
+  CardImg,
+  CardBody,
+  Row,
+  Col,
+  Input,
+  InputGroup,
+  InputGroupAddon,
+  Button
+} from "reactstrap";
 import "./PostContainer.css";
 
 const PostContainer = props => {
@@ -14,7 +24,7 @@ const PostContainer = props => {
         md={{ size: 8, offset: 2 }}
         lg={{ size: 6, offset: 3 }}
       >
-        <Card className="w-100 w-md-50 mx-auto my-5">
+        <Card className="w-100 mx-auto my-5">
           <Row noGutters={true}>
             <Col xs="2" className=" text-center">
               <img
@@ -28,7 +38,7 @@ const PostContainer = props => {
             </Col>
           </Row>
           <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
-          <CardBody>
+          <CardBody className="border-bottom px-0 py-3 mx-3 my-0">
             <div className="likes">
               <p className="mb-0">
                 <i className="far fa-heart fa-lg pr-2" />
@@ -40,6 +50,17 @@ const PostContainer = props => {
             </div>
             <CommentSection comments={props.data.comments} />
           </CardBody>
+          <InputGroup>
+            <Input
+              className="m-0 h-100 border-0 p-3"
+              placeholder="Add a comment..."
+            />
+            <InputGroupAddon addonType="append">
+              <Button className="btn" type="button" color="link">
+                <i class="fas fa-ellipsis-h fa-lg" />
+              </Button>
+            </InputGroupAddon>
+          </InputGroup>
         </Card>
       </Col>
     </Row>
