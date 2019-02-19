@@ -34,7 +34,6 @@ class CommentSection extends React.Component {
       { username: "I made something up", text: this.state.addText }
     ];
     this.setState({ comments: newData, addText: "" });
-    console.log(newData);
   };
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value });

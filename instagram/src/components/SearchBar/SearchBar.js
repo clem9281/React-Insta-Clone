@@ -10,7 +10,7 @@ import {
   Form
 } from "reactstrap";
 import "./SearchBar.css";
-const SearchBar = props => {
+const SearchBar = ({ textValue, changeFunction, onSearch }) => {
   return (
     <Navbar color="light" light className="w-100">
       <Row className="d-flex align-items-center w-100 mx-auto">
@@ -20,9 +20,16 @@ const SearchBar = props => {
           </NavbarBrand>
         </Col>
         <Col xs="4" md={{ size: 4, offset: 2 }}>
-          <Form>
+          <Form onSubmit={onSearch}>
             <InputGroup>
-              <Input bsSize="sm" type="text" placeholder="&#xf002; Search" />
+              <Input
+                bsSize="sm"
+                type="text"
+                placeholder="&#xf002; Search"
+                name="searchText"
+                value={textValue}
+                onChange={changeFunction}
+              />
             </InputGroup>
           </Form>
         </Col>

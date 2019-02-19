@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "fuzzy-search": "^3.0.1",
     "prop-types": "^15.7.2"
   }
 }
