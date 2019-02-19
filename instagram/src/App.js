@@ -9,8 +9,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData
+      data: []
     };
+  }
+  componentDidMount() {
+    this.setState({ data: dummyData });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    // console.log("prev:", prevState, "current: ", this.state);
+    // console.log("updated");
   }
   render() {
     return (

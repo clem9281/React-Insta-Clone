@@ -1,6 +1,14 @@
 import React from "react";
 import instaLogo from "../../assets/iglogo.png";
-import { Navbar, Input, InputGroup, NavbarBrand, Row, Col } from "reactstrap";
+import {
+  Navbar,
+  Input,
+  InputGroup,
+  NavbarBrand,
+  Row,
+  Col,
+  Form
+} from "reactstrap";
 import "./SearchBar.css";
 const SearchBar = props => {
   return (
@@ -12,9 +20,11 @@ const SearchBar = props => {
           </NavbarBrand>
         </Col>
         <Col xs="4" md={{ size: 4, offset: 2 }}>
-          <InputGroup>
-            <Input bsSize="sm" type="text" placeholder="&#xf002; Search" />
-          </InputGroup>
+          <Form>
+            <InputGroup>
+              <Input bsSize="sm" type="text" placeholder="&#xf002; Search" />
+            </InputGroup>
+          </Form>
         </Col>
         <Col xs="4" className="d-flex justify-content-end">
           <i className="far fa-compass text-muted fa-lg pl-2" />
