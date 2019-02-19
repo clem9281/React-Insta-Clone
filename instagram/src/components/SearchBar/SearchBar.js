@@ -5,8 +5,8 @@ import "./SearchBar.css";
 const SearchBar = props => {
   return (
     <>
-      <Navbar color="light" light>
-        <Row className="d-flex align-items-center w-100">
+      <Navbar color="light" light className="w-100">
+        <Row className="d-flex align-items-center w-100 mx-auto">
           <Col xs="4" md="2">
             <NavbarBrand href="/">
               <img
@@ -18,7 +18,7 @@ const SearchBar = props => {
           </Col>
           <Col xs="4" md={{ size: 4, offset: 2 }}>
             <InputGroup>
-              <Input bsSize="sm" type="text" placeholder="&#xF002; Search" />
+              <Input bsSize="sm" type="text" placeholder="&#xf002; Search" />
             </InputGroup>
           </Col>
           <Col xs="4" className="d-flex justify-content-end">
