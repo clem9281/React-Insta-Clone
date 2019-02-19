@@ -12,28 +12,29 @@ import {
   InputGroupAddon,
   Button
 } from "reactstrap";
+import moment from "moment";
 import "./PostContainer.css";
 
 const PostContainer = props => {
   console.log(props.data);
-  const { thumbnailUrl, username, imageUrl, likes } = props.data;
+  const { thumbnailUrl, username, imageUrl, likes, timestamp } = props.data;
   return (
     <Row>
       <Col
-        xs={{ size: 10, offset: 1 }}
+        xs={{ size: 12 }}
         md={{ size: 8, offset: 2 }}
         lg={{ size: 6, offset: 3 }}
       >
-        <Card className="w-100 mx-auto my-5">
+        <Card className="w-100 mx-auto my-3">
           <Row noGutters={true}>
-            <Col xs="2" className=" text-center">
+            <Col xs="2" className="text-center pl-3 pr-2">
               <img
                 src={thumbnailUrl}
                 alt=""
-                className="rounded-circle w-75 py-2"
+                className="rounded-circle w-100 py-4"
               />
             </Col>
-            <Col className="d-flex align-items-center">
+            <Col xs="10" className="d-flex align-items-center">
               <strong className="my-0 mx-0">{username}</strong>
             </Col>
           </Row>
@@ -49,6 +50,9 @@ const PostContainer = props => {
               </p>
             </div>
             <CommentSection comments={props.data.comments} />
+            <small className="text-muted">
+              {moment(timestamp, "MMMM Do YYYY, h:mm:ss a").fromNow()}
+            </small>
           </CardBody>
           <InputGroup>
             <Input
