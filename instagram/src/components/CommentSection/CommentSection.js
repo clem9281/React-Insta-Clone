@@ -22,18 +22,28 @@ class CommentSection extends React.Component {
     };
   }
   componentDidMount() {
-    this.setState({
-      comments: this.props.comments,
-      likes: this.props.likes
-    });
+    if (localStorage.getItem(this.props.postOwner)) {
+      this.setState({
+        comments: JSON.parse(localStorage.getItem(this.props.postOwner)),
+        likes: this.props.likes
+      });
+    } else {
+      this.setState({
+        comments: this.props.comments,
+        likes: this.props.likes
+      });
+      this.localStore(this.props.postOwner, this.props.comments);
+    }
   }
-  addNewComment = (event, index) => {
+
+  addNewComment = event => {
     event.preventDefault();
     const newData = [
       ...this.state.comments,
       { username: "I made something up", text: this.state.addText }
     ];
     this.setState({ comments: newData, addText: "" });
+    this.localStore(this.props.postOwner, newData);
   };
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -48,6 +58,9 @@ class CommentSection extends React.Component {
       newLikes--;
       this.setState({ likes: newLikes, clickedLikes: false });
     }
+  };
+  localStore = (name, data) => {
+    localStorage.setItem(`${name}`, JSON.stringify(data));
   };
   render() {
     return (

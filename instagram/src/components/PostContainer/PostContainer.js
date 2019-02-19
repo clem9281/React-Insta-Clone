@@ -37,9 +37,12 @@ const PostContainer = props => {
           </Row>
           <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
           <CommentSection
+            postOwner={username}
             comments={comments}
             timestamp={timestamp}
             likes={likes}
+            addCommentText={props.addCommentText}
+            changeFunction={props.changeFunction}
           />
         </Card>
       </Col>
