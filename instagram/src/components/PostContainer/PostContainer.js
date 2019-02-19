@@ -57,7 +57,7 @@ const PostContainer = props => {
             />
             <InputGroupAddon addonType="append">
               <Button className="btn" type="button" color="link">
-                <i class="fas fa-ellipsis-h fa-lg" />
+                <i className="fas fa-ellipsis-h fa-lg" />
               </Button>
             </InputGroupAddon>
           </InputGroup>
