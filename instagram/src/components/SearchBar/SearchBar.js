@@ -18,7 +18,7 @@ const SearchBar = props => {
           </Col>
           <Col xs="4" md={{ size: 4, offset: 2 }}>
             <InputGroup>
-              <Input size="sm" type="text" placeholder="&#xF002; Search" />
+              <Input bsSize="sm" type="text" placeholder="&#xF002; Search" />
             </InputGroup>
           </Col>
           <Col xs="4" className="d-flex justify-content-end">
