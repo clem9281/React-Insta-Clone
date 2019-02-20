@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import authenticate from "./components/authenticate/authenticate";
 import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
+import PostsPage from "./components/PostsPage/PostsPage";
+import Login from "./components/Login/Login";
 import dummyData from "./dummy-data";
-import { Container } from "reactstrap";
 import FuzzySearch from "fuzzy-search";
 import "./App.css";
 
@@ -39,29 +40,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchBar
+        {/* <SearchBar
           onSearch={this.handleSearch}
           changeFunction={this.handleChanges}
           textValue={this.state.searchText}
+        /> */}
+        <PostsPage
+          data={this.state.data}
+          foundUser={this.state.foundUser}
+          onSearch={this.handleSearch}
+          changeFunction={this.handleChanges}
+          textValue={this.state.searchT}
         />
-        <Container>
-          <p
-            className={
-              this.state.foundUser
-                ? "bad-search-area text-center"
-                : "text-center"
-            }
-          >
-            Sorry, we couldn't find any posts by that username, but check out
-            these recent posts
-          </p>
-          {this.state.data.map(element => (
-            <PostContainer data={element} key={element.username} />
-          ))}
-        </Container>
       </div>
     );
   }
 }
 
-export default App;
+export default authenticate(App)(Login);

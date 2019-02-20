@@ -15,7 +15,7 @@ const SearchBar = ({ textValue, changeFunction, onSearch }) => {
     <Navbar color="light" light className="w-100">
       <Row className="d-flex align-items-center w-100 mx-auto">
         <Col xs="4" md="2">
-          <NavbarBrand href="/" className="" id="main-nav">
+          <NavbarBrand href="/" className="d-none d-md-block" id="main-nav">
             <img src={instaLogo} alt="instagram text logo" className="h-100" />
           </NavbarBrand>
         </Col>
