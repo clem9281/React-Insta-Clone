@@ -59,7 +59,7 @@ class App extends Component {
           foundUser={this.state.foundUser}
           onSearch={this.handleSearch}
           changeFunction={this.handleChanges}
-          textValue={this.state.searchT}
+          textValue={this.state.searchText}
           localUser={this.state.localUser}
           logout={this.logout}
         />
