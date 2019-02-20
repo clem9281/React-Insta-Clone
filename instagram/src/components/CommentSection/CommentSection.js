@@ -46,9 +46,11 @@ class CommentSection extends Component {
     this.setState({ comments: newData, addText: "" });
     this.localStore(this.props.postOwner, newData);
   };
+  // handle changes in input
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+  // handles clicking the main heart icon
   handleLikes = event => {
     event.stopPropagation();
     let newLikes = this.state.likes;
@@ -60,6 +62,7 @@ class CommentSection extends Component {
       this.setState({ likes: newLikes, clickedLikes: false });
     }
   };
+  // handles clicking the icon next to a comment
   handleClickComment = event => {
     // I will change this after we do user stuff tomorrow
     if (event.target.id === "you") {
@@ -70,6 +73,7 @@ class CommentSection extends Component {
       this.localStore(this.props.postOwner, newData);
     }
   };
+  // stores data in local storage
   localStore = (name, data) => {
     localStorage.setItem(`${name}`, JSON.stringify(data));
   };
