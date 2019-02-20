@@ -28,10 +28,17 @@ class App extends Component {
   }
   // if the search doesn't find anything, change the data back to the previous state, but also change foundUser to false.
   componentDidUpdate(prevProps, prevState) {
+    console.log(1, prevState, this.state);
     if (this.state.data.length === 0) {
       this.setState({ data: prevState.data, foundUser: false });
     }
   }
+  logout = event => {
+    console.log("clicked");
+    event.stopPropagation();
+    localStorage.removeItem("localUser");
+    window.location.reload();
+  };
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value, foundUser: true });
   };
@@ -54,6 +61,7 @@ class App extends Component {
           changeFunction={this.handleChanges}
           textValue={this.state.searchT}
           localUser={this.state.localUser}
+          logout={this.logout}
         />
       </div>
     );

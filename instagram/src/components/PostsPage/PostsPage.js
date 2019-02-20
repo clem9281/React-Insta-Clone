@@ -9,7 +9,8 @@ const PostsPage = ({
   onSearch,
   changeFunction,
   textValue,
-  localUser
+  localUser,
+  logout
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const PostsPage = ({
         onSearch={onSearch}
         changeFunction={changeFunction}
         textValue={textValue}
+        logout={logout}
       />
       <Container>
         <p

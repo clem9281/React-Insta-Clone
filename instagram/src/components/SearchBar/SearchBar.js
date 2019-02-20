@@ -12,7 +12,7 @@ import {
   Button
 } from "reactstrap";
 import "./SearchBar.css";
-const SearchBar = ({ textValue, changeFunction, onSearch }) => {
+const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
   return (
     <Navbar color="light" light className="w-100">
       <Row className="d-flex align-items-center w-100 mx-auto">
@@ -42,7 +42,7 @@ const SearchBar = ({ textValue, changeFunction, onSearch }) => {
           <Button outline className="border-0">
             <i className="far fa-heart fa-lg" />
           </Button>
-          <DropDown />
+          <DropDown logout={logout} />
         </Col>
       </Row>
     </Navbar>

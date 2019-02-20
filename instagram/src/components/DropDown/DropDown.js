@@ -21,6 +21,7 @@ class DropDown extends React.Component {
       dropdownOpen: !this.state.dropdownOpen
     });
   }
+
   render() {
     return (
       <ButtonDropdown
@@ -33,7 +34,7 @@ class DropDown extends React.Component {
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem header>
-            <Button outline className="border-0">
+            <Button outline className="border-0" onClick={this.props.logout}>
               Logout
             </Button>
           </DropdownItem>
