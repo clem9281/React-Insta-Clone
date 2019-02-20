@@ -7,6 +7,6 @@
 [build]
   base    = "./instagram"
   publish = "./instagram/build"
-  command = "yarn build" 
+  command = "npm run build" 
 
 #Be sure to enter the right package manager build command in the command section
