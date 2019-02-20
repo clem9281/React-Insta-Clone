@@ -7,3 +7,6 @@
 .red-heart {
   color: red;
 }
+.comment-button > i {
+  pointer-events: none;
+}

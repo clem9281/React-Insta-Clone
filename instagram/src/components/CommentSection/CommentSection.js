@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import {
   Input,
@@ -11,9 +11,10 @@ import {
 import moment from "moment";
 import "./CommentSection.css";
 
-class CommentSection extends React.Component {
+class CommentSection extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
       comments: [],
       likes: 0,
@@ -40,7 +41,7 @@ class CommentSection extends React.Component {
     event.preventDefault();
     const newData = [
       ...this.state.comments,
-      { username: "I made something up", text: this.state.addText }
+      { username: "you", text: this.state.addText }
     ];
     this.setState({ comments: newData, addText: "" });
     this.localStore(this.props.postOwner, newData);
@@ -57,6 +58,16 @@ class CommentSection extends React.Component {
     } else {
       newLikes--;
       this.setState({ likes: newLikes, clickedLikes: false });
+    }
+  };
+  handleClickComment = event => {
+    // I will change this after we do user stuff tomorrow
+    if (event.target.id === "you") {
+      const newData = this.state.comments.filter(
+        element => element.username !== "you"
+      );
+      this.setState({ comments: newData });
+      this.localStore(this.props.postOwner, newData);
     }
   };
   localStore = (name, data) => {
@@ -85,10 +96,30 @@ class CommentSection extends React.Component {
         </div>
         <div className="border-bottom pb-3">
           {this.state.comments.map(comment => (
-            <p key={comment.text} className="mb-2">
-              <strong>{comment.username} </strong>
-              {comment.text}
-            </p>
+            <div
+              key={comment.text}
+              className="mb-1 d-flex align-items-center justify-content-between"
+            >
+              <p className="mb-0 mr-0 w-75">
+                <strong>{comment.username} </strong>
+                {comment.text}
+              </p>
+              {/* I will change the conditions of this statement once we do user stuff tomorrow*/}
+              <Button
+                id={comment.username}
+                className="comment-button border-0"
+                outline
+                onClick={this.handleClickComment}
+              >
+                <i
+                  className={
+                    comment.username === "you"
+                      ? "far fa-trash-alt"
+                      : "far fa-heart"
+                  }
+                />
+              </Button>
+            </div>
           ))}
           <small className="text-muted pl-2">
             {moment(this.props.timestamp, "MMMM Do YYYY, h:mm:ss a").fromNow()}
@@ -104,7 +135,7 @@ class CommentSection extends React.Component {
               name="addText"
             />
             <InputGroupAddon addonType="append">
-              <Button className="btn" type="button" color="link">
+              <Button outline className="border-0" type="button">
                 <i className="fas fa-ellipsis-h fa-lg" />
               </Button>
             </InputGroupAddon>

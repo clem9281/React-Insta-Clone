@@ -41,8 +41,6 @@ const PostContainer = props => {
             comments={comments}
             timestamp={timestamp}
             likes={likes}
-            addCommentText={props.addCommentText}
-            changeFunction={props.changeFunction}
           />
         </Card>
       </Col>
