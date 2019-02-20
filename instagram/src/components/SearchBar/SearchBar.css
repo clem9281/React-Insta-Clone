@@ -8,3 +8,11 @@ nav input::placeholder {
 #main-nav {
   height: 60px;
 }
+#insta-icon {
+  border-right: 2px solid black;
+}
+@media (max-width: 768px) {
+  #insta-icon {
+    border: none;
+  }
+}

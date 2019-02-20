@@ -17,8 +17,17 @@ const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
     <Navbar color="light" light className="w-100">
       <Row className="d-flex align-items-center w-100 mx-auto">
         <Col xs="4" md="2">
-          <NavbarBrand href="/" className="d-none d-md-block" id="main-nav">
-            <img src={instaLogo} alt="instagram text logo" className="h-100" />
+          <NavbarBrand
+            href="/"
+            id="main-nav"
+            className="d-flex align-items-center"
+          >
+            <i className="fab fa-instagram fa-3x pr-2" id="insta-icon" />
+            <img
+              src={instaLogo}
+              alt="instagram text logo"
+              className="h-100 d-none d-md-inline mt-3 pl-2"
+            />
           </NavbarBrand>
         </Col>
         <Col xs="4" md={{ size: 4, offset: 2 }}>
