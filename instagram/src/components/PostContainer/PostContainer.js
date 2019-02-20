@@ -23,18 +23,14 @@ const PostContainer = props => {
         lg={{ size: 6, offset: 3 }}
       >
         <Card className="w-100 mx-auto my-3">
-          <Row noGutters={true}>
-            <Col xs="2" className="text-center pl-3 pr-2">
-              <img
-                src={thumbnailUrl}
-                alt=""
-                className="rounded-circle w-100 py-4"
-              />
-            </Col>
-            <Col xs="10" className="d-flex align-items-center">
-              <strong className="my-0 mx-0">{username}</strong>
-            </Col>
-          </Row>
+          <div>
+            <img
+              src={thumbnailUrl}
+              alt=""
+              className="rounded-circle py-4 ml-4 mr-2 thumbnail"
+            />
+            <strong className="my-0 mx-0">{username}</strong>
+          </div>
           <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
           <CommentSection
             postOwner={username}
