@@ -8,7 +8,8 @@ const PostsPage = ({
   data,
   onSearch,
   changeFunction,
-  textValue
+  textValue,
+  localUser
 }) => {
   return (
     <>
@@ -25,7 +26,11 @@ const PostsPage = ({
           these recent posts
         </p>
         {data.map(element => (
-          <PostContainer data={element} key={element.username} />
+          <PostContainer
+            data={element}
+            key={element.username}
+            localUser={localUser}
+          />
         ))}
       </Container>
     </>

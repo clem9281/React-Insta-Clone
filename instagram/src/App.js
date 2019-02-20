@@ -13,11 +13,19 @@ class App extends Component {
     this.state = {
       data: [],
       searchText: "",
-      foundUser: true
+      foundUser: true,
+      localUser: ""
     };
   }
   componentDidMount() {
-    this.setState({ data: dummyData });
+    if (localStorage.getItem("localUser")) {
+      this.setState({
+        data: dummyData,
+        localUser: localStorage.getItem("localUser")
+      });
+    } else {
+      this.setState({ data: dummyData });
+    }
   }
   // if the search doesn't find anything, change the data back to the previous state, but also change foundUser to false.
   componentDidUpdate(prevProps, prevState) {
@@ -40,17 +48,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <SearchBar
-          onSearch={this.handleSearch}
-          changeFunction={this.handleChanges}
-          textValue={this.state.searchText}
-        /> */}
         <PostsPage
           data={this.state.data}
           foundUser={this.state.foundUser}
           onSearch={this.handleSearch}
           changeFunction={this.handleChanges}
           textValue={this.state.searchT}
+          localUser={this.state.localUser}
         />
       </div>
     );
