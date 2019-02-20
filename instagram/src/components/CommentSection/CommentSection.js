@@ -65,9 +65,10 @@ class CommentSection extends Component {
   // handles clicking the icon next to a comment
   handleClickComment = event => {
     // I will change this after we do user stuff tomorrow
-    if (event.target.id === "you") {
+    if (event.target.name === "you") {
+      console.log("found it");
       const newData = this.state.comments.filter(
-        element => element.username !== "you"
+        element => element.text !== event.target.id
       );
       this.setState({ comments: newData });
       this.localStore(this.props.postOwner, newData);
@@ -110,7 +111,8 @@ class CommentSection extends Component {
               </p>
               {/* I will change the conditions of this statement once we do user stuff tomorrow*/}
               <Button
-                id={comment.username}
+                id={comment.text}
+                name={comment.username}
                 className="comment-button border-0"
                 outline
                 onClick={this.handleClickComment}
