@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from "../DropDown/DropDown";
 import instaLogo from "../../assets/iglogo.png";
 import {
   Navbar,
@@ -7,7 +8,8 @@ import {
   NavbarBrand,
   Row,
   Col,
-  Form
+  Form,
+  Button
 } from "reactstrap";
 import "./SearchBar.css";
 const SearchBar = ({ textValue, changeFunction, onSearch }) => {
@@ -34,9 +36,13 @@ const SearchBar = ({ textValue, changeFunction, onSearch }) => {
           </Form>
         </Col>
         <Col xs="4" className="d-flex justify-content-end">
-          <i className="far fa-compass text-muted fa-lg pl-2" />
-          <i className="far fa-heart text-muted fa-lg pl-2" />
-          <i className="far fa-user text-muted fa-lg pl-2" />
+          <Button outline className="border-0 text-center">
+            <i className="far fa-compass fa-lg" />
+          </Button>
+          <Button outline className="border-0">
+            <i className="far fa-heart fa-lg" />
+          </Button>
+          <DropDown />
         </Col>
       </Row>
     </Navbar>

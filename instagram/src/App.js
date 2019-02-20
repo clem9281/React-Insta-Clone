@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import authenticate from "./components/authenticate/authenticate";
-import SearchBar from "./components/SearchBar/SearchBar";
 import PostsPage from "./components/PostsPage/PostsPage";
 import Login from "./components/Login/Login";
 import dummyData from "./dummy-data";
