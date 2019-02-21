@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { Card, CardImg, Row, Col } from "reactstrap";
 import { UserThumbnail, Username } from "../Styles/StyledComponents";
 
-import "./PostContainer.css";
-
 const PostContainer = props => {
   // console.log(props);
   const {

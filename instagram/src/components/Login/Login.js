@@ -1,6 +1,5 @@
 import React from "react";
 import instaLogo from "../../assets/iglogo.png";
-import "./Login.css";
 
 import {
   Container,
@@ -45,11 +44,7 @@ class Login extends React.Component {
       >
         <Card>
           <CardHeader>
-            <LoginLogo
-              src={instaLogo}
-              alt="instagram text logo"
-              id="login-logo"
-            />
+            <LoginLogo src={instaLogo} alt="instagram text logo" />
           </CardHeader>
           <CardBody>
             <Form onSubmit={this.login}>
