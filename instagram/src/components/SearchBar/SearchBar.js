@@ -16,7 +16,7 @@ const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
   return (
     <Navbar color="light" light className="w-100">
       <Row className="d-flex align-items-center w-100 mx-auto">
-        <Col xs="4" md="2">
+        <Col xs="2" md="4">
           <NavbarBrand
             href="/"
             id="main-nav"
@@ -30,7 +30,7 @@ const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
             />
           </NavbarBrand>
         </Col>
-        <Col xs="4" md={{ size: 4, offset: 2 }}>
+        <Col xs="8" md="4">
           <Form onSubmit={onSearch}>
             <InputGroup>
               <Input
@@ -44,11 +44,11 @@ const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
             </InputGroup>
           </Form>
         </Col>
-        <Col xs="4" className="d-flex justify-content-end">
-          <Button outline className="border-0 text-center">
+        <Col xs="2" md="4" className="d-flex justify-content-end p-0 p-md-3">
+          <Button outline className="border-0 text-center d-none d-md-inline">
             <i className="far fa-compass fa-lg" />
           </Button>
-          <Button outline className="border-0">
+          <Button outline className="border-0 d-none d-md-inline">
             <i className="far fa-heart fa-lg" />
           </Button>
           <DropDown logout={logout} />
