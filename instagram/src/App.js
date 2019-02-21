@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
+import authenticate from "./components/authenticate/authenticate";
+import PostsPage from "./components/PostsPage/PostsPage";
+import Login from "./components/Login/Login";
 import dummyData from "./dummy-data";
-import { Container } from "reactstrap";
 import FuzzySearch from "fuzzy-search";
 import "./App.css";
 
@@ -12,56 +12,62 @@ class App extends Component {
     this.state = {
       data: [],
       searchText: "",
-      foundUser: true
+      foundUser: true,
+      localUser: ""
     };
   }
   componentDidMount() {
-    this.setState({ data: dummyData });
+    if (localStorage.getItem("localUser")) {
+      this.setState({
+        data: dummyData,
+        localUser: localStorage.getItem("localUser")
+      });
+    } else {
+      this.setState({ data: dummyData });
+    }
   }
   // if the search doesn't find anything, change the data back to the previous state, but also change foundUser to false.
   componentDidUpdate(prevProps, prevState) {
+    console.log(1, prevState, this.state);
     if (this.state.data.length === 0) {
       this.setState({ data: prevState.data, foundUser: false });
     }
   }
+  logout = event => {
+    console.log("clicked");
+    event.stopPropagation();
+    localStorage.removeItem("localUser");
+    window.location.reload();
+  };
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value, foundUser: true });
+    if (event.target.value.length === 0) {
+      this.setState({
+        data: dummyData
+      });
+    }
   };
   handleSearch = event => {
     event.preventDefault();
-    // const newData = this.state.data.filter(
-    //   element => element.username === this.state.searchText
-    // );
     const searcher = new FuzzySearch(this.state.data, ["username"]);
     const result = searcher.search(this.state.searchText);
-    this.setState({ data: result, searchText: "" });
+    this.setState({ data: result });
   };
   render() {
     return (
       <div className="App">
-        <SearchBar
+        <PostsPage
+          data={this.state.data}
+          foundUser={this.state.foundUser}
           onSearch={this.handleSearch}
           changeFunction={this.handleChanges}
           textValue={this.state.searchText}
+          localUser={this.state.localUser}
+          logout={this.logout}
         />
-        <Container>
-          <p
-            className={
-              this.state.foundUser
-                ? "bad-search-area text-center"
-                : "text-center"
-            }
-          >
-            Sorry, we couldn't find any posts by that username, but check out
-            these recent posts
-          </p>
-          {this.state.data.map(element => (
-            <PostContainer data={element} key={element.username} />
-          ))}
-        </Container>
       </div>
     );
   }
 }
 
-export default App;
+export default authenticate(App)(Login);

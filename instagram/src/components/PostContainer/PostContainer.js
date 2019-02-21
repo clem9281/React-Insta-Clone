@@ -33,6 +33,7 @@ const PostContainer = props => {
           </div>
           <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
           <CommentSection
+            localUser={props.localUser}
             postOwner={username}
             comments={comments}
             timestamp={timestamp}

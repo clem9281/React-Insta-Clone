@@ -41,7 +41,7 @@ class CommentSection extends Component {
     event.preventDefault();
     const newData = [
       ...this.state.comments,
-      { username: "you", text: this.state.addText }
+      { username: this.props.localUser, text: this.state.addText }
     ];
     this.setState({ comments: newData, addText: "" });
     this.localStore(this.props.postOwner, newData);
@@ -65,7 +65,7 @@ class CommentSection extends Component {
   // handles clicking the icon next to a comment
   handleClickComment = event => {
     // I will change this after we do user stuff tomorrow
-    if (event.target.name === "you") {
+    if (event.target.name === this.props.localUser) {
       console.log("found it");
       const newData = this.state.comments.filter(
         element => element.text !== event.target.id
@@ -119,7 +119,7 @@ class CommentSection extends Component {
               >
                 <i
                   className={
-                    comment.username === "you"
+                    comment.username === this.props.localUser
                       ? "far fa-trash-alt"
                       : "far fa-heart"
                   }
