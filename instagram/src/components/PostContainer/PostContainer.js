@@ -2,6 +2,7 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
 import { Card, CardImg, Row, Col } from "reactstrap";
+import { UserThumbnail, Username } from "../Styles/StyledComponents";
 
 import "./PostContainer.css";
 
@@ -24,12 +25,8 @@ const PostContainer = props => {
       >
         <Card className="w-100 mx-auto my-3">
           <div>
-            <img
-              src={thumbnailUrl}
-              alt=""
-              className="rounded-circle py-4 ml-4 mr-2 thumbnail"
-            />
-            <strong className="my-0 mx-0">{username}</strong>
+            <UserThumbnail src={thumbnailUrl} alt="" />
+            <Username>{username}</Username>
           </div>
           <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
           <CommentSection

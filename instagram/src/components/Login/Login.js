@@ -13,6 +13,8 @@ import {
   Button
 } from "reactstrap";
 
+import { LoginLogo } from "../Styles/StyledComponents";
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -43,10 +45,9 @@ class Login extends React.Component {
       >
         <Card>
           <CardHeader>
-            <img
+            <LoginLogo
               src={instaLogo}
               alt="instagram text logo"
-              className="d-block mx-auto"
               id="login-logo"
             />
           </CardHeader>
