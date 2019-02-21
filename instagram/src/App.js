@@ -41,15 +41,17 @@ class App extends Component {
   };
   handleChanges = event => {
     this.setState({ [event.target.name]: event.target.value, foundUser: true });
+    if (event.target.value.length === 0) {
+      this.setState({
+        data: dummyData
+      });
+    }
   };
   handleSearch = event => {
     event.preventDefault();
-    // const newData = this.state.data.filter(
-    //   element => element.username === this.state.searchText
-    // );
     const searcher = new FuzzySearch(this.state.data, ["username"]);
     const result = searcher.search(this.state.searchText);
-    this.setState({ data: result, searchText: "" });
+    this.setState({ data: result });
   };
   render() {
     return (
