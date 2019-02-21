@@ -22,11 +22,11 @@ const SearchBar = ({ textValue, changeFunction, onSearch, logout }) => {
             id="main-nav"
             className="d-flex align-items-center"
           >
-            <i className="fab fa-instagram fa-3x pr-2" id="insta-icon" />
+            <i className="fab fa-instagram fa-2x pr-2" id="insta-icon" />
             <img
               src={instaLogo}
               alt="instagram text logo"
-              className="h-100 d-none d-md-inline mt-3 pl-2"
+              className="h-100 d-none d-md-inline mt-1 pl-2"
             />
           </NavbarBrand>
         </Col>

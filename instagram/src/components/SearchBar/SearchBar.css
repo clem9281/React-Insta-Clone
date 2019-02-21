@@ -6,7 +6,11 @@ nav input::placeholder {
   font-weight: 600;
 }
 #main-nav {
-  height: 60px;
+  height: 40px;
+  width: auto;
+}
+#main-nav {
+  width: auto;
 }
 #insta-icon {
   border-right: 2px solid black;
