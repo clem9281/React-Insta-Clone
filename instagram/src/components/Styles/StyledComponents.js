@@ -5,7 +5,6 @@ import { Input, NavbarBrand } from "reactstrap";
 ////SearchBar
 export const Header = styled.header`
   margin: 0;
-  border-bottom: 1px solid grey;
 `;
 
 // need important to override bootstrap styles
