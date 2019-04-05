@@ -9,8 +9,11 @@ import {
   CardBody
 } from "reactstrap";
 import moment from "moment";
-import "./CommentSection.css";
-
+import {
+  StyledReactionButton,
+  IconWithNoClick,
+  FullHeart
+} from "../Styles/StyledComponents";
 class CommentSection extends Component {
   constructor(props) {
     super(props);
@@ -82,18 +85,16 @@ class CommentSection extends Component {
     return (
       <CardBody className="px-0 pt-3 pb-0 mx-3 my-0">
         <div className="likes">
-          <button className="grey-button" onClick={this.handleLikes}>
-            <i
-              className={
-                !this.state.clickedLikes
-                  ? "far fa-heart fa-lg pr-2"
-                  : "fas fa-heart fa-lg pr-2 red-heart"
-              }
-            />
-          </button>
-          <button className="grey-button">
+          <StyledReactionButton onClick={this.handleLikes}>
+            {!this.state.clickedLikes ? (
+              <i className="far fa-heart fa-lg pr-2" />
+            ) : (
+              <FullHeart className="fas fa-heart fa-lg pr-2" />
+            )}
+          </StyledReactionButton>
+          <StyledReactionButton>
             <i className="far fa-comment fa-lg" />
-          </button>
+          </StyledReactionButton>
 
           <p>
             <strong>{this.state.likes} likes</strong>
@@ -109,7 +110,7 @@ class CommentSection extends Component {
                 <strong>{comment.username} </strong>
                 {comment.text}
               </p>
-              {/* I will change the conditions of this statement once we do user stuff tomorrow*/}
+
               <Button
                 id={comment.text}
                 name={comment.username}
@@ -117,7 +118,7 @@ class CommentSection extends Component {
                 outline
                 onClick={this.handleClickComment}
               >
-                <i
+                <IconWithNoClick
                   className={
                     comment.username === this.props.localUser
                       ? "far fa-trash-alt"

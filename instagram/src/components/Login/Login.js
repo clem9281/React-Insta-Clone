@@ -1,6 +1,5 @@
 import React from "react";
 import instaLogo from "../../assets/iglogo.png";
-import "./Login.css";
 
 import {
   Container,
@@ -12,6 +11,8 @@ import {
   Input,
   Button
 } from "reactstrap";
+
+import { LoginLogo } from "../Styles/StyledComponents";
 
 class Login extends React.Component {
   constructor() {
@@ -43,12 +44,7 @@ class Login extends React.Component {
       >
         <Card>
           <CardHeader>
-            <img
-              src={instaLogo}
-              alt="instagram text logo"
-              className="d-block mx-auto"
-              id="login-logo"
-            />
+            <LoginLogo src={instaLogo} alt="instagram text logo" />
           </CardHeader>
           <CardBody>
             <Form onSubmit={this.login}>
